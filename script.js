@@ -33,7 +33,10 @@ if (_search.indexOf("pgfu") > -1
 // https://www.google.com/maps/dir/?api=1&destination=25.0795219204473,121.615607575112
 if (_search !== undefined && _search.trim() !== "") {
     var _navigation_url = "https://www.google.com/maps/dir/?api=1&destination=" + _search;
-    //alert(_navigation_url);
+    alert(_navigation_url);
     document.body.innerHTML = _navigation_url;
     window.open(_navigation_url);
+}
+else {
+    alert("not found");
 }
