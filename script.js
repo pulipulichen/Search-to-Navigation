@@ -16,9 +16,12 @@ var getQueryVariable = function(variable, url) {
 
 // -----------------
 
+$(function () {
+
+
 var _search = getQueryVariable("search");
 
-alert(_search);
+//alert(_search);
 
 if (_search.indexOf("pgfu") > -1 
             && _search.indexOf("n.tw") > -1) {
@@ -33,10 +36,21 @@ if (_search.indexOf("pgfu") > -1
 // https://www.google.com/maps/dir/?api=1&destination=25.0795219204473,121.615607575112
 if (_search !== undefined && _search.trim() !== "") {
     var _navigation_url = "https://www.google.com/maps/dir/?api=1&destination=" + _search;
-    alert(_navigation_url);
-    document.write(_navigation_url);
-    window.open(_navigation_url);
+    //alert(_navigation_url);
+    //document.write(_navigation_url);
+    //$("body").empty();
+    $("body").html('<a target="_blank" data-rel="external" href="' + _navigation_url + '"><button type="button" style="width:100%;height: 100vh">' + _navigation_url + '</button></a>');
+    //$("body div").text(_navigation_url);
+    window.open(_navigation_url, "_blank");
+    //console.log(_navigation_url);
+    $("body a").click();
+
 }
 else {
     alert("not found");
 }
+$(window).click(function () {
+  $("body a").click();
+});
+
+});
