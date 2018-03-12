@@ -18,7 +18,7 @@ var getQueryVariable = function(variable, url) {
 
 var _search = getQueryVariable("search");
 
-//alert(_search);
+alert(_search);
 
 if (_search.indexOf("pgfu") > -1 
             && _search.indexOf("n.tw") > -1) {
@@ -34,5 +34,6 @@ if (_search.indexOf("pgfu") > -1
 if (_search !== undefined && _search.trim() !== "") {
     var _navigation_url = "https://www.google.com/maps/dir/?api=1&destination=" + _search;
     //alert(_navigation_url);
+    document.body.innerHTML = _navigation_url;
     window.open(_navigation_url);
 }
