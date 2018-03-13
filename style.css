@@ -1,0 +1,14 @@
+.landscape img {
+    height: 100vh;
+    width: auto;
+}
+
+.portrait img {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

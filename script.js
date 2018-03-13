@@ -23,7 +23,8 @@ var _search = getQueryVariable("search");
 
 //alert(_search);
 
-if (_search.indexOf("pgfu") > -1 
+if (_search !== undefined 
+            && _search.indexOf("pgfu") > -1 
             && _search.indexOf("n.tw") > -1) {
         //alert(decodeURIComponent(_search));
         _search = "?" + decodeURIComponent(_search).split("?")[1];
@@ -39,15 +40,25 @@ if (_search !== undefined && _search.trim() !== "") {
     //alert(_navigation_url);
     //document.write(_navigation_url);
     //$("body").empty();
-    $("body").html('<a target="_blank" data-rel="external" href="' + _navigation_url + '"><button type="button" style="width:100%;height: 100vh">' + _navigation_url + '</button></a>');
+    var _classname = "portrait";
+    if ($(window).width() > $(window).height()) {
+        _classname = "landscape";
+    }
+    
+    $("body").html('<a target="_blank" data-rel="external" href="' + _navigation_url + '" class="' + _classname + '">' 
+            + '<button type="button" style="width:100%;height: 100vh">' 
+                // + _navigation_url 
+                + '<img src="icons8-google-maps.svg" />'
+            + '</button>' 
+            + '</a>');
     //$("body div").text(_navigation_url);
     window.open(_navigation_url, "_blank");
     //console.log(_navigation_url);
-    $("body a").click();
-
+    //$("body a").click();
+    //$(window).close();
 }
 else {
-    alert("not found");
+    //alert("not found");
 }
 $(window).click(function () {
   $("body a").click();
